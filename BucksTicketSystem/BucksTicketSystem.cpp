@@ -1,12 +1,25 @@
 // BucksTicketSystem.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
 
 #include "pch.h"
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	char ch;
+
+    cout << "Welcome to the Bucks Ticketing System!" << endl << endl;
+	cout << "Please select from one of the two options below:" << endl;
+	cout << "1: View and buy tickets for shows" << endl;
+	cout << "2: Leave the Bucks Ticketing System and miss out on all the shows" << endl << endl;
+	cout << "Option: ";
+
+	cin.get(ch);
+
+	cin.clear();
+	cin.ignore();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
