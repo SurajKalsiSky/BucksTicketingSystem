@@ -1,6 +1,5 @@
 // BucksTicketSystem.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
-
 #include "pch.h"
 #include "user.h"
 #include <iostream>
@@ -9,20 +8,53 @@ using namespace std;
 
 int main() {
 	// initialise variables
+	char userChoice;
 	char ch;
 
-	// display main menu options
+	// find out who is using the system
 	cout << "Welcome to the Bucks Ticketing System!" << endl << endl;
-	cout << "Please select from one of the two options below:" << endl;
-	cout << "1: View and buy tickets for shows" << endl;
-	cout << "2: Leave the Bucks Ticketing System and miss out on all the shows" << endl << endl;
+	cout << "Please let us know who you are by selecting an option below:" << endl;
+	cout << "1: Customer" << endl;
+	cout << "2: Agent" << endl << endl;
 	cout << "Option: ";
+	cin.get(userChoice);
 
-	user SURAJ;
+	// data validation in case the user does not pick a valid number
+	while (userChoice != '1' && userChoice != '2') {
+		cin.ignore(100, '\n');
+		cout << "Please try again: ";
+		cin.get(userChoice);
+	}
 
-	SURAJ.getLogin();
+	system("CLS");
 
-	// retrieve the input
+	// user* USER = new user;
+	// tried to make a pointer here
+
+	if (userChoice == '1') {
+		// get customer login and information
+		customer USER;
+		USER.getLogin();
+		cout << USER.getUsername() << " ";
+		
+	} else {
+		// get agent login and information
+		agent USER;
+		USER.getLogin();
+
+		// get customer info
+		cout << USER.getUsername() << " ";
+	}
+
+	// show seats
+
+
+	// display main menu options	
+	cout << "has succesfully logged in" << endl << endl;
+	cout << "Now select from one of the two options below:" << endl;
+	cout << "1: View and buy tickets for shows" << endl;
+	cout << "2: Log out of the Bucks Ticketing System and miss out on all the shows" << endl << endl;
+	cout << "Option: ";
 	cin.get(ch);
 
 	// data validation in case the user does not pick a valid number
@@ -34,6 +66,12 @@ int main() {
 	}
 
 	if (ch == '2') {
+		system("CLS");
+		cout << "Thank you for using the Bucks Ticketing System" << endl;
+		return EXIT_SUCCESS;
+	}
+
+	if (ch == '1') {
 		system("CLS");
 		cout << "Thank you for using the Bucks Ticketing System" << endl;
 		return EXIT_SUCCESS;
