@@ -2,14 +2,14 @@
 
 #include "pch.h"
 #include "user.h"
+#include "show.h"
 #include <iostream>
 
 using namespace std;
 
 int main() {
-	// initialise variables
+	// initialise variable
 	char userChoice;
-	char ch;
 
 	// find out who is using the system
 	cout << "Welcome to the Bucks Ticketing System!" << endl << endl;
@@ -26,6 +26,7 @@ int main() {
 		cin.get(userChoice);
 	}
 
+	// clears the console
 	system("CLS");
 
 	// user* USER = new user;
@@ -34,20 +35,22 @@ int main() {
 	if (userChoice == '1') {
 		// get customer login and information
 		customer USER;
-		USER.getLogin();
+		USER.getLogin(); // the getLogin method is polymorphic
+		system("CLS");
 		cout << USER.getUsername() << " ";
 		
 	} else {
 		// get agent login and information
 		agent USER;
-		USER.getLogin();
+		USER.getLogin(); // the getLogin method is polymorphic
+		USER.getCustomerInfo();
+		system("CLS");
 
 		// get customer info
 		cout << USER.getUsername() << " ";
 	}
 
-	// show seats
-
+	char ch;
 
 	// display main menu options	
 	cout << "has succesfully logged in" << endl << endl;
@@ -67,14 +70,15 @@ int main() {
 
 	if (ch == '2') {
 		system("CLS");
-		cout << "Thank you for using the Bucks Ticketing System" << endl;
+		cout << "Thank you for using the Bucks Ticketing System" << endl << endl;
 		return EXIT_SUCCESS;
 	}
 
 	if (ch == '1') {
+		// select an upcoming show
 		system("CLS");
-		cout << "Thank you for using the Bucks Ticketing System" << endl;
-		return EXIT_SUCCESS;
+		show SHOW;
+		SHOW.selectShowAndDate();
 	}
 
 

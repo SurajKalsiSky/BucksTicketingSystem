@@ -12,17 +12,17 @@ class user {
 		string getUsername();
 
 	protected:
-		string firstName;
-		string surname;
 		string username;
 		string password;
 };
 
+// constructor
 user::user() {
-	firstName = "";
-	surname = "";
+	username = "";
+	password = "";
 }
 
+// gets login details of user
 void user::getLogin() {
 	cout << "please enter your login details" << endl;
 	cout << "Username: ";
@@ -41,9 +41,9 @@ void user::getLogin() {
 		cout << "Sorry, incorrect password, please try again: ";
 		getline(cin, password);
 	}
-	system("CLS");
 }
 
+// returns the users username
 string user::getUsername() {
 	return username;
 }
@@ -52,10 +52,11 @@ string user::getUsername() {
 // the customer class is derived from the base class user
 
 class customer : public user {
-public:
-	customer();
+	public:
+		customer();
 };
 
+// constructor
 customer::customer() {
 	cout << "Welcome customer, ";
 }
@@ -64,10 +65,20 @@ customer::customer() {
 // the agent class is derived from the base class user
 
 class agent : public user {
-public:
-	agent();
+	public:
+		agent();
+		void getCustomerInfo();
+	protected:
+		string customerProfileInfo;
 };
 
+// constructor
 agent::agent() {
 	cout << "Welcome agent, ";
+}
+
+// gets the customer profile info from the agent
+void agent::getCustomerInfo() {
+	cout << "Now enter the customer profile information: ";
+	getline(cin, customerProfileInfo);
 }

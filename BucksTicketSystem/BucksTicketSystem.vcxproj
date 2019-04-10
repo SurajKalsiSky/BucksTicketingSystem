@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="show.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
